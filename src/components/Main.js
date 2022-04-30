@@ -108,4 +108,12 @@ const Wrap = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    img {
+      width: 40%;
+    }
+    p {
+      margin: 4px;
+      font-size: max(2.5vw, 23.5px);
+      font-weight: 650;
+    }
 `

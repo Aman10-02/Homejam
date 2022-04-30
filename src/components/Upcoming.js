@@ -118,7 +118,9 @@ export default Upcoming
  const Cards = styled.div`
   width: 20%;
   min-width: 150px;
-  margin: 5px;
+  border-radius: 15px 15px 0 0;
+  margin: 15px 10px 10px 5px;
+  box-shadow: 5px -7px 5px 5px #0000ff;
  `
  const Cardimg = styled.img`
    width: 100%;

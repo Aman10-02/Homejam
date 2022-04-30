@@ -11,56 +11,61 @@ function Reviews() {
       <Line />
       <Cardcontainer>
         <Cards>
-          <Cardimg src="/images/Img7.png" />
-          <Cardtext>
-            <Type>
-              Folk
-            </Type>
-            <p>Benny Dayal</p>
-          </Cardtext>
-          <Cardlinks>
-            <a href="">More info</a>
-            <img src="/images/icons/save.png" alt="" />
-          </Cardlinks>
+          <Reviewperson>
+            <Personimg>
+              <Cardimg src="/images/Img1.png" />
+            </Personimg>
+            <Persondetail>
+              <Name>
+                Hellen Jummy
+              </Name>
+              <Country>
+                <img src="/images/icons/us.png" alt="" />
+                <p>PALOALTO, CA</p>
+              </Country>
+            </Persondetail>
+          </Reviewperson>
+          <Textreview>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae in donec in nisi vitae. Vestibulum pellentesque eget laoreet adipiscing.
+          </Textreview>
         </Cards>
         <Cards>
-          <Cardimg src="/images/Img6.png" />
-          <Cardtext>
-            <Type>
-              Folk
-            </Type>
-            <p>Benny Dayal</p>
-          </Cardtext>
-          <Cardlinks>
-            <a href="">More info</a>
-            <img src="/images/icons/save.png" alt="" />
-          </Cardlinks>
+          <Reviewperson>
+            <Personimg>
+              <Cardimg src="/images/Img1.png" />
+            </Personimg>
+            <Persondetail>
+              <Name>
+                Hellen Jummy
+              </Name>
+              <Country>
+                <img src="/images/icons/us.png" alt="" />
+                <p>PALOALTO, CA</p>
+              </Country>
+            </Persondetail>
+          </Reviewperson>
+          <Textreview>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae in donec in nisi vitae. Vestibulum pellentesque eget laoreet adipiscing.
+          </Textreview>
         </Cards>
         <Cards>
-          <Cardimg src="/images/Img5.png" />
-          <Cardtext>
-            <Type>
-              Folk
-            </Type>
-            <p>Benny Dayal</p>
-          </Cardtext>
-          <Cardlinks>
-            <a href="">More info</a>
-            <img src="/images/icons/save.png" alt="" />
-          </Cardlinks>
-        </Cards>
-        <Cards>
-          <Cardimg src="/images/Img4.png" />
-          <Cardtext>
-            <Type>
-              Folk
-            </Type>
-            <p>Benny Dayal</p>
-          </Cardtext>
-          <Cardlinks>
-            <a href="">More info</a>
-            <img src="/images/icons/save.png" alt="" />
-          </Cardlinks>
+          <Reviewperson>
+            <Personimg>
+              <Cardimg src="/images/Img1.png" />
+            </Personimg>
+            <Persondetail>
+              <Name>
+                Hellen Jummy
+              </Name>
+              <Country>
+                <img src="/images/icons/us.png" alt="" />
+                <p>PALOALTO, CA</p>
+              </Country>
+            </Persondetail>
+          </Reviewperson>
+          <Textreview>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae in donec in nisi vitae. Vestibulum pellentesque eget laoreet adipiscing.
+          </Textreview>
         </Cards>
       </Cardcontainer>
 
@@ -70,7 +75,7 @@ function Reviews() {
 
 export default Reviews
  const Container = styled.div`
-   height: 80px;
+   height: 60px;
    width: 100%;
    
  `
@@ -101,7 +106,7 @@ export default Reviews
  `
  const Line = styled.div`
    background-color: blue;
-   margin-top: -20px;
+   margin-top: -13px;
    margin-left: 5px;
    height: 3px;
    width: 40px;
@@ -113,37 +118,67 @@ export default Reviews
    justify-content: space-between;
    overflow-x: scroll;
    &::-webkit-scrollbar {
-    display: none;
-  }
- `
+     display: none;
+    }
+  `
  const Cards = styled.div`
-  width: 20%;
-  min-width: 150px;
-  margin: 5px;
+    width: 33%;
+    height: 150px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: solid;
+    border-color: yellow;
+    min-width: 280px;
+    margin: 15px 8px 20px 8px;
+    //box-shadow: 10px -10px #0000ff;
+    box-shadow: 7px -10px 4px 2px #16d0c0cc;
+  `
+  const Reviewperson = styled.div`
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  `
+ const Personimg = styled.div`
+   height: 50px;
+   width: 50px;
+   border-radius: 100%;
  `
  const Cardimg = styled.img`
    width: 100%;
+   height: 100%;
+   object-fit: cover;
  `
- const Cardtext = styled.div`
-  padding: 5px 0;
-   p {
-     font-weight: 400;
-     font-size: 20px;
-     margin: 5px 0;
-   }
- `
- const Type = styled.div`
-   background-color: yellow;
-   width: fit-content;
-   border-radius: 4px;
-   padding: 1px 5px;
-   color: black;   
- `
- const Cardlinks = styled.div`
+//  const Type = styled.div`
+//    background-color: yellow;
+//    width: fit-content;
+//    border-radius: 4px;
+//    padding: 1px 5px;
+//    color: black;   
+//  `
+
+const Persondetail = styled.div`
+  padding-left: 20px;
+  width: calc(100% - 100px);
+  height: 50px;
+`
+const Name = styled.div`
+  width: 100%;
+  height: 50%;
+`
+const Country = styled.div`
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  img {
+    margin-right: 8px;
+  }
+`
+
+ const Textreview = styled.div`
    display: flex;
    justify-content: space-between;
    padding: 0 4px 10px;
-   a {
-     text-decoration: none;
-   }
  `
