@@ -92,7 +92,10 @@ const Titles = styled.div`
   h1 {
     font-weight: 1000;
     font-size: 60px;
-    @media (max-width: 725px) {
+  }
+  @media (max-width: 725px) {
+    margin-top: 40px;
+    h1{
       margin-top: 50px;
       font-size: 40px;
     }
