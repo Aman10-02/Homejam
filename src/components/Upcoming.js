@@ -1,7 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
+import { selectHeroes } from '../features/hero/heroSlice'
+import {useSelector} from 'react-redux'
+import {useState} from 'react'
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
 function Upcoming() {
+
+  const heroes = useSelector(selectHeroes)
+  const [indx, setindx] = useState()
+
   return (
     <Container>
       <Nav>
@@ -10,58 +18,21 @@ function Upcoming() {
       </Nav>
       <Line />
       <Cardcontainer>
-        <Cards>
-          <Cardimg src="/images/Img7.png" />
+        {heroes && heroes.map((hero, index)=> (
+          <Cards  key={index}>
+          <Cardimg src={hero.img} />
           <Cardtext>
             <Type>
-              Folk
+              {hero.type}
             </Type>
-            <p>Benny Dayal</p>
+            <p>{hero.name}</p>
           </Cardtext>
           <Cardlinks>
-            <a href="">More info</a>
-            <img src="/images/icons/save.png" alt="" />
+            <Info>More info <Arrow /> </Info>
+            <img onClick={()=> {setindx(index)} } src= {(index === indx)?"/images/icons/group.png" : "/images/icons/save.png" } alt="" />
           </Cardlinks>
         </Cards>
-        <Cards>
-          <Cardimg src="/images/Img6.png" />
-          <Cardtext>
-            <Type>
-              Folk
-            </Type>
-            <p>Benny Dayal</p>
-          </Cardtext>
-          <Cardlinks>
-            <a href="">More info</a>
-            <img src="/images/icons/save.png" alt="" />
-          </Cardlinks>
-        </Cards>
-        <Cards>
-          <Cardimg src="/images/Img5.png" />
-          <Cardtext>
-            <Type>
-              Folk
-            </Type>
-            <p>Benny Dayal</p>
-          </Cardtext>
-          <Cardlinks>
-            <a href="">More info</a>
-            <img src="/images/icons/save.png" alt="" />
-          </Cardlinks>
-        </Cards>
-        <Cards>
-          <Cardimg src="/images/Img4.png" />
-          <Cardtext>
-            <Type>
-              Folk
-            </Type>
-            <p>Benny Dayal</p>
-          </Cardtext>
-          <Cardlinks>
-            <a href="">More info</a>
-            <img src="/images/icons/save.png" alt="" />
-          </Cardlinks>
-        </Cards>
+        ))}
       </Cardcontainer>
 
     </Container>
@@ -117,16 +88,16 @@ export default Upcoming
  `
  const Cards = styled.div`
   width: 20%;
-  min-width: 150px;
+  min-width: 170px;
   border-radius: 15px 15px 0 0;
   margin: 15px 10px 10px 5px;
-  box-shadow: 5px -7px 5px 5px #0000ff;
+  box-shadow: 5px -7px 5px 3px #0000ff;
  `
  const Cardimg = styled.img`
    width: 100%;
  `
  const Cardtext = styled.div`
-  padding: 5px 0;
+  padding: 5px 5px;
    p {
      font-weight: 400;
      font-size: 20px;
@@ -143,8 +114,21 @@ export default Upcoming
  const Cardlinks = styled.div`
    display: flex;
    justify-content: space-between;
+   align-items: center;
    padding: 0 4px 10px;
-   a {
-     text-decoration: none;
+   img {
+     cursor: pointer;
    }
- `
+  `
+const Info = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: blue;
+  font-size: 17px;
+  cursor: pointer;
+  &:hover{
+    color: violet;
+  }
+`
+ const Arrow = styled(ArrowRightAltIcon)``

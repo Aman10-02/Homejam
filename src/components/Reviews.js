@@ -1,99 +1,66 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useSelector } from 'react-redux'
+import { selectReviews } from '../features/review/reviewSlice'
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 function Reviews() {
+
+  const reviews = useSelector(selectReviews)
   return (
     <Container>
       <Nav>
         <h2>Reviews</h2>
-        <p>View More</p>
+        <Cover>
+          <P1>1</P1>
+          <P2>/12</P2>
+          <Icon1></Icon1>
+          <Icon2></Icon2>
+        </Cover>
       </Nav>
       <Line />
       <Cardcontainer>
-        <Cards>
-          <Reviewperson>
-            <Personimg>
-              <Cardimg src="/images/Img1.png" />
-            </Personimg>
-            <Persondetail>
-              <Name>
-                Hellen Jummy
-              </Name>
-              <Country>
-                <img src="/images/icons/us.png" alt="" />
-                <p>PALOALTO, CA</p>
-              </Country>
-            </Persondetail>
-          </Reviewperson>
-          <Textreview>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae in donec in nisi vitae. Vestibulum pellentesque eget laoreet adipiscing.
-          </Textreview>
-        </Cards>
-        <Cards>
-          <Reviewperson>
-            <Personimg>
-              <Cardimg src="/images/Img1.png" />
-            </Personimg>
-            <Persondetail>
-              <Name>
-                Hellen Jummy
-              </Name>
-              <Country>
-                <img src="/images/icons/us.png" alt="" />
-                <p>PALOALTO, CA</p>
-              </Country>
-            </Persondetail>
-          </Reviewperson>
-          <Textreview>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae in donec in nisi vitae. Vestibulum pellentesque eget laoreet adipiscing.
-          </Textreview>
-        </Cards>
-        <Cards>
-          <Reviewperson>
-            <Personimg>
-              <Cardimg src="/images/Img1.png" />
-            </Personimg>
-            <Persondetail>
-              <Name>
-                Hellen Jummy
-              </Name>
-              <Country>
-                <img src="/images/icons/us.png" alt="" />
-                <p>PALOALTO, CA</p>
-              </Country>
-            </Persondetail>
-          </Reviewperson>
-          <Textreview>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae in donec in nisi vitae. Vestibulum pellentesque eget laoreet adipiscing.
-          </Textreview>
-        </Cards>
+        {
+          reviews && reviews.map((review, index) => (
+            <Cards key={index}>
+              <Reviewperson>
+                <Personimg>
+                  <Cardimg src={review.img} />
+                </Personimg>
+                <Persondetail>
+                  <Name>
+                    {review.name}
+                  </Name>
+                  <Country>
+                    <img src={review.flag} alt="" />
+                    <p>{review.place}</p>
+                  </Country>
+                </Persondetail>
+              </Reviewperson>
+              <Textreview>
+                {review.description}
+              </Textreview>
+            </Cards>
+          ))}
       </Cardcontainer>
-
     </Container>
   )
 }
 
 export default Reviews
- const Container = styled.div`
+const Container = styled.div`
    height: 60px;
    width: 100%;
    
  `
- const Nav = styled.div`
+const Nav = styled.div`
   height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   h2 {
     margin: 0;
-  }
-  p {
-    color: yellow;
-
-    &:hover {
-      color: blue;
-      cursor: pointer;
-    }
   }
   @media (max-width:425px) {
     h2 {
@@ -104,14 +71,31 @@ export default Reviews
     }
   }
  `
- const Line = styled.div`
+ const Cover = styled.div`
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ `
+ const P1 =styled.div`
+  margin-right: 2px;
+ `
+ const P2 =styled.div`
+  opacity: 0.6;
+ `
+ const Icon1 = styled(ArrowBackIcon)`
+  margin: 0px 5px;
+  opacity: 0.6;
+ `
+ const Icon2 = styled(ArrowForwardIcon)``
+
+const Line = styled.div`
    background-color: blue;
    margin-top: -13px;
    margin-left: 5px;
    height: 3px;
    width: 40px;
  `
- const Cardcontainer = styled.div`
+const Cardcontainer = styled.div`
    width: 100%;
    margin-top: 20px;
    display: flex;
@@ -121,7 +105,7 @@ export default Reviews
      display: none;
     }
   `
- const Cards = styled.div`
+const Cards = styled.div`
     width: 33%;
     height: 150px;
     padding: 10px 20px;
@@ -133,31 +117,23 @@ export default Reviews
     //box-shadow: 10px -10px #0000ff;
     box-shadow: 7px -10px 4px 2px #16d0c0cc;
   `
-  const Reviewperson = styled.div`
+const Reviewperson = styled.div`
     width: 100%;
     height: 50px;
     margin-bottom: 10px;
     display: flex;
     align-items: center;
   `
- const Personimg = styled.div`
+const Personimg = styled.div`
    height: 50px;
    width: 50px;
    border-radius: 100%;
  `
- const Cardimg = styled.img`
+const Cardimg = styled.img`
    width: 100%;
    height: 100%;
    object-fit: cover;
  `
-//  const Type = styled.div`
-//    background-color: yellow;
-//    width: fit-content;
-//    border-radius: 4px;
-//    padding: 1px 5px;
-//    color: black;   
-//  `
-
 const Persondetail = styled.div`
   padding-left: 20px;
   width: calc(100% - 100px);
@@ -177,7 +153,7 @@ const Country = styled.div`
   }
 `
 
- const Textreview = styled.div`
+const Textreview = styled.div`
    display: flex;
    justify-content: space-between;
    padding: 0 4px 10px;

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Upcoming from './Upcoming'
 import Reviews from './Reviews'
 
+
 function Main() {
   return (
     <Container>
@@ -22,17 +23,31 @@ function Main() {
             </Wrap>
           </Elements>
           <Elements>
-            
+          <Wrap>
+            <img src="/images/icons/Calendar.png" alt="" />
+            <p>0</p>
+            <p>Label</p>
+            </Wrap>
           </Elements>
           <Elements>
-            
+          <Wrap>
+            <img src="/images/icons/Calendar.png" alt="" />
+            <p>0</p>
+            <p>Label</p>
+            </Wrap>
           </Elements>
           <Elements>
-            
+          <Wrap>
+            <img src="/images/icons/Calendar.png" alt="" />
+            <p>0</p>
+            <p>Label</p>
+            </Wrap>
           </Elements>
         </Dashboards>
       </ImgContainer>
+
       <Upcoming />
+
       <Reviews />
 
     </Container>
