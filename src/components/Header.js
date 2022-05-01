@@ -43,7 +43,6 @@ const Components= styled.div`
     display: flex;
     align-items: center;
     height: 50px;
-    z-index: 50;
     background-color: transparent;
 `
 const Logo = styled.img`
@@ -110,6 +109,7 @@ const Menu = styled(MenuIcon)`
 const Dropdown = styled.div`
     border-top: solid 1px;
     border-bottom: solid 1px;
+    background-color: black;
     padding: 0 0 10px 10.42%;
     position: fixed;
     min-width: 100px;

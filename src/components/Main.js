@@ -61,6 +61,11 @@ const Container = styled.div`
   flex-direction: column;
   margin-left: 10.42%;
   margin-right: 10.42%;
+  @media (max-width:425px) {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 0px 5px;
+  }
  `
 const ImgContainer = styled.div`
   display: flex;
